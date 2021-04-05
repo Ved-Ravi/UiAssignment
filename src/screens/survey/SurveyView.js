@@ -24,7 +24,7 @@ export default class SurveyView extends Component {
     super(props);
     this.state = {
       selectedTab: 0,
-      selectedCategory: 'Food',
+      selectedCategory: DATA[0],
       questionData: questData,
       questionData1: questData1,
     };

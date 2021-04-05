@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   screenHeight,
   screenWidth,
@@ -18,6 +17,7 @@ import {
   ThemeColor,
 } from '../../utils/util';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon1 from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/MaterialIcons';
 import Icon3 from 'react-native-vector-icons/Entypo';
@@ -168,7 +168,7 @@ export default class ImgViewerView extends Component {
           />
           <Image
             style={styles.profileIcon}
-            source={{uri: 'https://picsum.photos/100/100'}}
+            source={{uri: 'https://picsum.photos/id/1005/100/100'}}
           />
         </View>
 
@@ -216,25 +216,43 @@ export default class ImgViewerView extends Component {
           data={VerticalListData}
           renderItem={this.verticalList}
           keyExtractor={item => item.id}
-          ref={(ref) => { this.flatListRef = ref; }}
+          ref={ref => {
+            this.flatListRef = ref;
+          }}
         />
 
-        <TouchableOpacity style={styles.bottomButton} onPress={() =>{
-             this.flatListRef.scrollToIndex({animated: true, index: 1});
-        }}>
-          <View style={{height: 50, alignItems: 'center', marginTop: heightScale(10)}}>
+        <TouchableOpacity
+          style={styles.bottomButton}
+          onPress={() => {
+            this.flatListRef.scrollToIndex({animated: true, index: 1});
+          }}>
+          <View
+            style={{
+              height: 50,
+              alignItems: 'center',
+              marginTop: heightScale(10),
+            }}>
             <Icon2
               name="arrow-back-ios"
               size={widthScale(18)}
               color={ThemeColor.skyGreen}
               style={{transform: [{rotate: '90deg'}], top: 0}}
             />
-            <Icon3 name="circle" size={widthScale(12)} color={ThemeColor.skyGreen} style={{top: 9, position: 'absolute'}}/>
+            <Icon3
+              name="circle"
+              size={widthScale(12)}
+              color={ThemeColor.skyGreen}
+              style={{top: 9, position: 'absolute'}}
+            />
             <Icon2
               name="arrow-back-ios"
               size={widthScale(18)}
               color={ThemeColor.skyGreen}
-              style={{transform: [{rotate: '-90deg'}], top: 13, position: 'absolute',}}
+              style={{
+                transform: [{rotate: '-90deg'}],
+                top: 13,
+                position: 'absolute',
+              }}
             />
           </View>
         </TouchableOpacity>

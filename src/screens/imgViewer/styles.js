@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   photoContainer: {
     marginRight: widthScale(10),
-    backgroundColor: '#ab0',
+    backgroundColor: '#ffffff',
   },
   photoStyle: {
     height: heightScale(120),
