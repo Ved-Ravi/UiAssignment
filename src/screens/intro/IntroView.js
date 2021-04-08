@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
 import {View, Text, StatusBar, Image} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {screenHeight, screenWidth, ThemeColor} from '../../utils/util';
+import {
+  heightScale,
+  screenHeight,
+  screenWidth,
+  ThemeColor,
+  widthScale,
+} from '../../utils/util';
 import styles from './styles';
 import LinearGradient from 'react-native-linear-gradient';
+import FadeInView from './components/FadeInView';
 
 export default class IntroView extends Component {
   constructor(props) {
@@ -41,12 +48,17 @@ export default class IntroView extends Component {
           alignItems: 'center',
         }}>
         <LinearGradient
-          colors={[item.backgroundColor,'#ffffff']}
-          style={{
-            height: screenHeight,
-            width: screenWidth
-          }}>
-          </LinearGradient>
+          colors={[item.backgroundColor, '#ffffff']}
+          style={styles.tabContainer}>
+          <View style={styles.boxContainer}>
+            <FadeInView style={{...styles.heading, fontSize: 20}} time={1500}>
+              {item.title}
+            </FadeInView>
+            <FadeInView style={{...styles.heading, fontSize: 16}} time={5000}>
+              {item.text}
+            </FadeInView>
+          </View>
+        </LinearGradient>
       </View>
     );
   };
@@ -59,6 +71,9 @@ export default class IntroView extends Component {
           barStyle="light-content"
         />
         <AppIntroSlider
+          onSlideChange={() => {
+            
+          }}
           data={slides}
           renderItem={this._renderItem}
           onDone={this._onDone}
@@ -69,7 +84,6 @@ export default class IntroView extends Component {
           renderSkipButton={this._renderSkipButton}
           renderDoneButton={this._renderDoneButton}
         />
-
       </View>
     );
   }
@@ -78,14 +92,14 @@ export default class IntroView extends Component {
 const slides = [
   {
     key: 'one',
-    title: 'Title 1',
+    title: 'Hey',
     text: 'Description.\nSay something cool',
     image: require('../../assets/icons/background.jpg'),
     backgroundColor: '#59b2ab',
   },
   {
     key: 'two',
-    title: 'Title 2',
+    title: 'Fuck you',
     text: 'Other cool stuff',
     image: require('../../assets/icons/background.jpg'),
     backgroundColor: '#febe29',

@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     height: componentHeight,
     borderRadius: componentHeight/2,
     width: screenWidth - widthScale(40),
-    elevation: 2,
+    elevation: 1,
     paddingLeft: widthScale(20),
     paddingRight: widthScale(65)
   },

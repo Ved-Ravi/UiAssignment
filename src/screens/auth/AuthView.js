@@ -20,6 +20,7 @@ import styles from './styles';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/EvilIcons';
 import Icon1 from 'react-native-vector-icons/FontAwesome';
+import {SliderBox} from 'react-native-image-slider-box';
 
 export default class AuthView extends Component {
   constructor(props) {
@@ -35,9 +36,25 @@ export default class AuthView extends Component {
     return (
       <ScrollView contentContainerStyle={{backgroundColor: '#ffffff'}}>
         <View style={styles.imageContainer}>
-          <Image
+          {/* <Image
             source={{uri: 'https://picsum.photos/400/400'}}
             style={styles.image}
+            resizeMode='center'
+          /> */}
+          <SliderBox
+            images={image}
+            ImageComponentStyle={styles.image}
+            inactiveDotColor='#ffffff00'
+            dotStyle={{
+              width: 10,
+              height: 10,
+              borderRadius: 5,
+              borderWidth: 2,
+              padding: 2,
+              backgroundColor: '#ffffff',
+              borderColor: '#ffffff',
+            }}
+            paginationBoxStyle={{left: widthScale(50), bottom: 30}}
           />
         </View>
         <View
@@ -52,7 +69,7 @@ export default class AuthView extends Component {
             style={{
               height: screenHeight,
               width: screenWidth,
-              bottom: heightScale(20),
+              bottom: 25,
             }}
           />
         </View>
@@ -235,7 +252,6 @@ export default class AuthView extends Component {
               />
               <TouchableOpacity
                 onPress={() => {
-                  
                   if (this.state.screen == 'signup') {
                     this.props.navigation.navigate('Home');
                   } else {
@@ -265,3 +281,9 @@ export default class AuthView extends Component {
     );
   }
 }
+
+const image = [
+  'https://picsum.photos/id/1006/500/300',
+  'https://picsum.photos/id/1011/500/300',
+  'https://picsum.photos/id/1012/500/300',
+];
