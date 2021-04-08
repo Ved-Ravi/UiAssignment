@@ -99,7 +99,7 @@ const slides = [
   },
   {
     key: 'two',
-    title: 'Fuck you',
+    title: 'Hello',
     text: 'Other cool stuff',
     image: require('../../assets/icons/background.jpg'),
     backgroundColor: '#febe29',
